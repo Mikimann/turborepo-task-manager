@@ -1,13 +1,15 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  async rewrite() {
+  async rewrites() {
     return [
       {
-        source: "/api/health",
-        destination: "/health",
+        source: "/health",
+        destination: "/api/health",
       },
     ];
   },
 };
+
+module.exports = nextConfig;
