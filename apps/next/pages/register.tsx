@@ -1,10 +1,10 @@
 import Head from "next/head";
 
-export default function Home() {
+export default function Register() {
   return (
     <div>
       <Head>
-        <title>Home</title>
+        <title>Register</title>
       </Head>
     </div>
   );
