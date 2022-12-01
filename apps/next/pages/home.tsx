@@ -6,6 +6,7 @@ export default function Home() {
       <Head>
         <title>Home</title>
       </Head>
+      <div data-testid="home">Home</div>
     </div>
   );
 }
