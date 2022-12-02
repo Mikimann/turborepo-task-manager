@@ -6,6 +6,7 @@ export default function Login() {
       <Head>
         <title>Login</title>
       </Head>
+      <div data-testid="login">Home</div>
     </div>
   );
 }
