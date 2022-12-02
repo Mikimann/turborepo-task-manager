@@ -6,6 +6,7 @@ export default function Register() {
       <Head>
         <title>Register</title>
       </Head>
+      <div data-testid="register">Home</div>
     </div>
   );
 }
