@@ -2,11 +2,20 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  async redirects() {
+    return [
+      {
+        source: "/",
+        destination: "/home",
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
-        source: "/health",
-        destination: "/api/health",
+        source: "/api/health",
+        destination: "http://localhost:3001/health",
       },
     ];
   },

@@ -1,26 +1,26 @@
-import { useEffect, useState } from "react";
+import { InferGetStaticPropsType, NextPage } from "next";
+import { GetStaticProps } from "next";
 
-export default function Health() {
-  const [health, setHealth] = useState<string>();
-  const [error, setError] = useState<unknown>();
-  useEffect(() => {
-    const getHealth = async () => {
-      try {
-        const res = await fetch(`http://localhost:3001/health`);
-        const data = await res.json();
-        setHealth(data);
-      } catch (error) {
-        setError(error);
-      }
-    };
-    getHealth();
-  }, []);
-  if (error) {
-    return <>Something went wrong: {error}</>;
-  }
+const Health: NextPage = ({
+  res,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <div>
-      <p>{health}</p>
+      <h1>Health API</h1>
+      <h2>Status: {res?.status}</h2>
     </div>
   );
-}
+};
+
+export default Health;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await fetch(`http://localhost:3001/health`);
+  const res: Response = await data.json();
+
+  return {
+    props: {
+      res,
+    },
+  };
+};
