@@ -1,4 +1,4 @@
-name: Eslint/Prettier
+name: Eslint/Prettier server
 
 on:
   # Trigger the workflow on push or pull request,
@@ -6,9 +6,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - apps/server/**
   pull_request:
     branches:
       - main
+  
 
 jobs:
   run-linters:
