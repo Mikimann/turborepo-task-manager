@@ -39,6 +39,7 @@ jobs:
           eslint: true
           prettier: true
   frontend-unit-test:
+    name: unit-test
     runs-on: ubuntu-latest
     strategy:
       matrix:
