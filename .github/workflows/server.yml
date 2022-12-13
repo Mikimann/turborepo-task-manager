@@ -13,7 +13,6 @@ on:
       - main
     paths:
       - apps/server/**
-  
 
 jobs:
   run-linters:
