@@ -37,3 +37,39 @@ jobs:
         with:
           eslint: true
           prettier: true
+          
+  e2e-test:
+    name: e2e-test
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+        - '16.18'
+        database-name:
+        - postgres
+        database-password:
+        - postgres
+        database-user:
+        - postgres
+    services:
+       postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: ${{ matrix.database-name }}
+          POSTGRES_USER: ${{ matrix.database-user }}
+          POSTGRES_PASSWORD: ${{ matrix.database-password }}
+        ports:
+          - 5432:5432
+    steps:
+    - name: Set up Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: npm run test:e2e
+      env:
+        POSTGRES_DB: ${{ matrix.database-name }}
+        POSTGRES_USER: ${{ matrix.database-user }}
+        POSTGRES_PASSWORD: ${{ matrix.database-password }}
+    - run: echo "test e2e"
+
