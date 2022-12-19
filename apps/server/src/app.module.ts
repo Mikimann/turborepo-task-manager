@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import * as dotenv from 'dotenv';
 import { ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { UserModule } from './user/user.module';
 
 dotenv.config();
 const configService = new ConfigService();
@@ -30,6 +31,7 @@ const entities = [];
       synchronize: true,
       autoLoadEntities: true,
     }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
