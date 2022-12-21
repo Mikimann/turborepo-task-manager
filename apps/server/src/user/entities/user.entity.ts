@@ -6,6 +6,7 @@ import {
   BeforeInsert,
 } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { Exclude } from 'class-transformer';
 
 @Entity('user')
 export class UserEntity extends BaseEntity {
@@ -16,6 +17,7 @@ export class UserEntity extends BaseEntity {
   email: string;
 
   @Column({ nullable: false })
+  @Exclude({ toPlainOnly: true })
   password: string;
 
   @Column({ nullable: false })
