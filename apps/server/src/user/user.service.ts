@@ -18,4 +18,8 @@ export class UserService {
     user.password = password;
     return this.userRepository.save(this.userRepository.create(user));
   }
+
+  async findOne(email: string): Promise<UserDto | undefined> {
+    return this.userRepository.findOne({ where: { email } });
+  }
 }
