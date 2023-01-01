@@ -1,11 +1,9 @@
 import { IsNumber, IsString, Matches } from 'class-validator';
 import { MESSAGE, REGEX } from '../../app.utils';
 import * as bcrypt from 'bcrypt';
+import { Type } from 'class-transformer';
 
 export class UserDto {
-  // @IsNumber()
-  // id: any;
-
   @IsString()
   email: string;
 
@@ -17,8 +15,4 @@ export class UserDto {
 
   @IsString()
   fullName: string;
-
-  // validatePassword(password: string): Promise<boolean> {
-  //   return bcrypt.compare(password, this.password);
-  // }
 }
