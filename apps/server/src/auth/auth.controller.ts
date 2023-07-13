@@ -7,7 +7,7 @@ import {
   Get,
 } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { UserEntity } from 'src/user/entities/user.entity';
+import { UserEntity } from '../user/entities/user.entity';
 import { Repository } from 'typeorm';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-auth.guard';

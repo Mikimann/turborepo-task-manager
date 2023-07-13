@@ -1,6 +1,6 @@
 import { Controller, Post, Body, UseInterceptors } from '@nestjs/common';
 import { UserService } from './user.service';
-import { SETTINGS } from 'src/app.utils';
+import { SETTINGS } from '../app.utils';
 import { UserDto } from './dto/create-user.dto';
 import { RegisterInterceptor } from '../interceptor/register.interceptor';
 
